@@ -1,4 +1,4 @@
-try:
+try:        #предотвращение ошибки, есди пользователь введет не число
     n = int(input('Введите количество сотрудников:'))
     lens = []
     personal = {}
@@ -6,12 +6,12 @@ try:
     num_tax = {}
     sum = 0
 
-    for i in range(1, n + 1):
+    for i in range(1, n + 1):       #получение данных о сотрудниках
         x = int(input('Ввидите расстояние до дома для ' + str(i) + ' сотрудника:'))
         personal[x] = i
         lens.append(x)
 
-    for i in range(1, n + 1):
+    for i in range(1, n + 1):       #олучение данных о стоимости такси
         x = int(input('Ввидите стоимость за киллометр для ' + str(i) + ' машины:'))
         num_tax[x] = i
         price.append(x)
@@ -19,13 +19,14 @@ try:
     lens.sort()
     price.sort(reverse=True)
 
-    for i in range(n):
+    for i in range(n):      #вычисление оптимальной посадки сотрудников в такси
         pr = str(num_tax[price[i]]) + ' - номер такси, в которое должен сесть ' + str(personal[lens[i]]) + ' сотрудник'
         sum += lens[i] * price[i]
         print(pr)
 
     print('сумма всех поездок равна', sum, 'руб')
 
+#запись ответа словами
     x = sum
     n = len(str(x))
     itog = ''
@@ -264,7 +265,7 @@ except ValueError:
     a = 1
     print('Ошибка, Вы ввели не цифру')
 
-while a == 1:
+while a == 1:       #цикл для бесконечной работы кода, пока пользователь не введет корректную информацию
     try:
         n = int(input('Введите количество сотрудников:'))
         lens = []
